@@ -160,10 +160,14 @@ endif()
 set( AMDGPU_TARGETS "${target_list}" CACHE STRING "AMD GPU targets to compile for" FORCE )
 
 option( BUILD_WITH_HIPBLASLT "Build with HipBLASLt" ON )
-set( hipblaslt_path "/opt/rocm" CACHE PATH "Use local HipBLASLt directory" )
+if( WIN32 )
+  set( hipblaslt_path "C:\\opt\\rocm" CACHE PATH "Use local HipBLASLt directory" )
+else ()
+  set( hipblaslt_path "/opt/rocm" CACHE PATH "Use local HipBLASLt directory" )
+endif( )
 set( HIPBLASLT_VERSION 0.10 CACHE STRING "The version of HipBLASLt to be used" )
 
-if( WIN32 OR NOT BUILD_WITH_TENSILE OR NOT BUILD_SHARED_LIBS )
+if( NOT BUILD_WITH_TENSILE OR NOT BUILD_SHARED_LIBS )
   set( BUILD_WITH_HIPBLASLT OFF )
 endif()
 
