@@ -832,7 +832,7 @@ Tests:
       # batched and strided_batched also shared code
     algo: [0, 1] # algo 1 is x dot x
     os_flags: LINUX
-    gpu_arch: '90a'
+    gpu_arch: ['90a','942']
 
   - name: blas1_size_t
     category: stress
@@ -842,7 +842,7 @@ Tests:
       - iamax: *single_precision
       - asum: *single_precision
       - nrm2_ex: *hpa_half_precision
-    gpu_arch: '90a'
+    gpu_arch: ['90a','942']
     os_flags: LINUX
 
   - name: blas1_size_t
@@ -852,7 +852,7 @@ Tests:
     alpha: [ 2 ]
     function:
       - scal_ex:  *hpa_half_precision
-    gpu_arch: '90a'
+    gpu_arch: ['90a','942']
     os_flags: LINUX
 
   - name: blas1_size_t
@@ -862,7 +862,7 @@ Tests:
     function:
       - swap: *single_precision
       - copy:  *single_precision
-    gpu_arch: '90a'
+    gpu_arch: ['90a','942']
     os_flags: LINUX
 
   - name: blas1_size_t
@@ -872,7 +872,7 @@ Tests:
     function:
       - rot_ex:  *hpa_half_precision
       # real rot shared kernels with rot_ex so only testing size_t with rot_ex and half.
-    gpu_arch: '90a'
+    gpu_arch: ['90a','942']
     os_flags: LINUX
 
   - name: blas1_size_t
@@ -882,7 +882,7 @@ Tests:
     function:
       - rot_ex:  *single_precision_complex
       # complex rot shared kernels with rot_ex so only testing size_t with rot_ex and single_precision_complex.
-    gpu_arch: '90a'
+    gpu_arch: ['90a','942']
     os_flags: LINUX
 
   - name: blas1_size_t
@@ -891,7 +891,7 @@ Tests:
     function:
       - rotm:  *single_precision
       #all rotm functions use same templated source so it is only necessary to test single_precision.
-    gpu_arch: '90a'
+    gpu_arch: ['90a','942']
     os_flags: LINUX
 
 # All functions with incx, no incy, no alpha
