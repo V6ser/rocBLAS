@@ -45,7 +45,11 @@ build*
 .\#*
 \#*\#
 *~
+-*
+*.bak
 
 # windows tools and deps
 .vs/
 vcpkg_installed/
+"build/"
+
